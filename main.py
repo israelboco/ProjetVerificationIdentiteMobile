@@ -68,6 +68,12 @@ class IdentityVerificationApp:
 
 def main(page: ft.Page):
     app = IdentityVerificationApp(page)
+    # install safe call_from_async helper so code can schedule UI updates from threads
+    try:
+        from modules.ui_utils import install_call_from_async
+        install_call_from_async(page)
+    except Exception:
+        pass
     page.update()
 
 if __name__ == "__main__":

@@ -9,7 +9,7 @@ class APIClient:
     def __init__(self, base_url: str = "http://localhost:5000"):
         self.base_url = base_url
         self.session = requests.Session()
-        self.timeout = 30
+        self.timeout = 300  # Timeout en secondes
 
     def verify_identity(self, document_image: bytes, selfie_image: bytes) -> Optional[Dict]:
         """Envoie les images à l'API de vérification"""
